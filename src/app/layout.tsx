@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { SimplifiedNavbar } from '@/components/navigation/SimpleNavbar';
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",

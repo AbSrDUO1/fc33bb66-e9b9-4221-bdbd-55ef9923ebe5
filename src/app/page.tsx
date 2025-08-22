@@ -28,6 +28,10 @@ export default function Home() {
             text="Get Started" 
             onClick={() => {}} 
             className="bg-blue-500 text-white rounded p-2"
+            bgColor="blue"
+            hoverBgColor="darkblue"
+            textColor="white"
+            hoverTextColor="lightgrey"
           />
         </ContentTextbox>
       </section>
@@ -74,6 +78,10 @@ export default function Home() {
             text="Send Message" 
             onClick={() => {}} 
             className="bg-blue-500 text-white rounded p-2"
+            bgColor="blue"
+            hoverBgColor="darkblue"
+            textColor="white"
+            hoverTextColor="lightgrey"
           />
         </form>
       </section>
