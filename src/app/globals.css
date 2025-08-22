@@ -1,2 +1,58 @@
 @import "tailwindcss";
-/* Placeholder for existing CSS */
+
+@layer utilities {
+  .font-playfair {
+    font-family: var(--font-playfair);
+  }
+
+  /* New Utility Classes from Design Tokens */
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+}
+
+:root {
+  /* Base units */
+  --background: #FFFFFF;
+  --foreground: #1F2937;
+  --color-transparent-grey: #F3F4F6;
+  --color-off-white: rgba(255, 255, 255, 0.45);
+  --color-grey: #F8F9FA;
+  --color-primary: #0D6EFD; /* Primary color for buttons and CTAs */
+  --color-secondary: #F3F4F6; /* Background color for sections */
+  --color-text: #1F2937; /* Text color */
+
+  /* Add additional design tokens as necessary */
+}
+
+@media (max-width: 767px) {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #1F2937;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-text: var(--color-text);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+}
+
+@layer components {
+}
+
+@layer utilities {
+  /* UI Styles */
+  .card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: var(--color-off-white);
+  }
+}

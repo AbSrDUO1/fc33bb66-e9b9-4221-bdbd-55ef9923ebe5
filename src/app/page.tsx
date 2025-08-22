@@ -1,72 +1,82 @@
-"use client";
-import Image from 'next/image';
+"use client"
 import ContentTextbox from '@/components/textbox/ContentTextbox';
+import SimpleStepsBento from '@/components/bento/SimpleStepsBento';
 import { useState } from 'react';
+import { SlideButton } from '@/components/buttons/SlideButton'; 
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
   };
 
   return (
-    <>
-      <section id="hero" className="flex flex-col items-center justify-center bg-gradient-to-r from-[#E6F0FF] to-[#FFFFFF] h-screen">
-        <ContentTextbox
-          title={<h1 className='text-5xl font-bold'>Welcome to Our Service</h1>}
-          description={<p className='text-lg'>We are committed to delivering value on one page.</p>}
-          className="mb-8"
-        />
-        <Image src="/images/logo.svg" alt="Company Logo" width={150} height={150} />
+    <div>
+      <section id="hero" className="bg-[#F8F9FA] py-[80px] text-center">
+        <ContentTextbox 
+          title={<h1 className="text-5xl font-bold">Welcome to Our Simple Brand</h1>} 
+          description={<p className="text-xl">Delivering clarity with our reliable services.</p>}
+          className="my-8"
+        >
+          <SlideButton 
+            text="Get Started" 
+            onClick={() => {}} 
+            className="bg-blue-500 text-white rounded p-2"
+          />
+        </ContentTextbox>
       </section>
-      <section id="about" className="bg-white py-24">
+      <section id="about" className="bg-white py-[80px]">
         <ContentTextbox
-          title={<h2 className='text-4xl font-semibold'>About Us</h2>}
-          description={<p className='text-lg'>Our mission is to inspire trust and clarity.</p>}
-          className="mb-8"
-        />
-      </section>
-      <section id="features" className="bg-soft-noise">
-        <ContentTextbox
-          title={<h2 className='text-4xl font-semibold'>Features</h2>}
-          description={<p className='text-lg'>Explore our remarkable features!</p>}
-          className="mb-8"
+          title={<h2 className="text-3xl">About Us</h2>}
+          description={<p>We strive to provide top quality services with a clear focus on customer satisfaction.</p>}
+          className="my-8"
         />
       </section>
-      <section id="terms" className="bg-[#F7F7F7] py-24">
-        <ContentTextbox
-          title={<h2 className='text-4xl font-semibold'>Terms Overview</h2>}
-          description={<p className='text-lg'>A brief overview of our terms.</p>}
-          className="mb-8"
+      <section id="features" className="bg-white py-[80px]">
+        <SimpleStepsBento 
+          items={[
+            { title: 'Feature 1', description: 'Clear and effective service communication.' },
+            { title: 'Feature 2', description: 'Fast and reliable response times.' },
+            { title: 'Feature 3', description: 'Dedicated support when you need it most.' },
+          ]}
+          className="grid gap-5"
         />
       </section>
-      <section id="privacy" className="bg-white py-24">
+      <section id="testimonials" className="bg-white py-[80px]">
         <ContentTextbox
-          title={<h2 className='text-4xl font-semibold'>Privacy Policy</h2>}
-          description={<p className='text-lg'>Details about our data handling practices.</p>}
-          className="mb-8"
+          title={<h2 className="text-3xl">What Our Clients Say</h2>}
+          description={<>
+            <blockquote className="italic">“They brought clarity to our project!”</blockquote>
+            <p className="text-gray-500">– Client A</p>
+            <blockquote className="italic">“Confident and easy to work with!”</blockquote>
+            <p className="text-gray-500">– Client B</p>
+          </>}
+          className="my-8"
         />
       </section>
-      <section id="contact" className="bg-[#F7FAFC] py-24">
+      <section id="contact" className="bg-white py-[80px]">
         <ContentTextbox
-          title={<h2 className='text-4xl font-semibold'>Contact Us</h2>}
-          description={<p className='text-lg'>We would love to hear from you!</p>}
-          className="mb-8"
+          title={<h2 className="text-3xl">Contact Us</h2>}
+          description={<p>We'd love to hear from you!</p>}
+          className="my-8"
         />
-        <form onSubmit={handleSubmit} className="flex flex-col">
-          <input type="text" name="name" placeholder="Your Name" onChange={handleChange} className="mb-4 p-2 border" />
-          <input type="email" name="email" placeholder="Your Email" onChange={handleChange} className="mb-4 p-2 border" />
-          <textarea name="message" placeholder="Your Message" onChange={handleChange} className="mb-4 p-2 border" />
-          <button type="submit" className="bg-blue-600 text-white p-2">Send</button>
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+          <input name="name" placeholder="Your Name" onChange={handleInputChange} className="p-2 border rounded" />
+          <input name="email" type="email" placeholder="Your Email" onChange={handleInputChange} className="p-2 border rounded" />
+          <textarea name="message" placeholder="Your Message" onChange={handleInputChange} className="p-2 border rounded"></textarea>
+          <SlideButton 
+            text="Send Message" 
+            onClick={() => {}} 
+            className="bg-blue-500 text-white rounded p-2"
+          />
         </form>
       </section>
-    </>
+    </div>
   );
 }
