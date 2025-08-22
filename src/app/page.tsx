@@ -7,11 +7,11 @@ import SlideButton from '@/components/buttons/SlideButton';
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
   };
