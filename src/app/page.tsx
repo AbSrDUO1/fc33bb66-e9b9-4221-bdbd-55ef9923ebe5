@@ -2,7 +2,7 @@
 import ContentTextbox from '@/components/textbox/ContentTextbox';
 import SimpleStepsBento from '@/components/bento/SimpleStepsBento';
 import { useState } from 'react';
-import { SlideButton } from '@/components/buttons/SlideButton'; 
+import SlideButton from '@/components/buttons/SlideButton';
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
