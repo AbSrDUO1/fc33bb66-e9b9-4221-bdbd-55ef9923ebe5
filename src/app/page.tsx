@@ -67,7 +67,7 @@ export default function Home() {
       <section id="contact" className="bg-white py-[80px]">
         <ContentTextbox
           title={<h2 className="text-3xl">Contact Us</h2>}
-          description={<p>We'd love to hear from you!</p>}
+          description={<p>We&#39;d love to hear from you!</p>}
           className="my-8"
         />
         <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
